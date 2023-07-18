@@ -1,10 +1,11 @@
 import { Container } from 'react-bootstrap';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Signup from './Signup';
 
 function App() {
   return (
-    <div>hello</div>
+    <Signup />
   )
 }
 
-export default App
+export default App;
