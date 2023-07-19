@@ -5,13 +5,17 @@ import { AuthProvider } from "../contexts/AuthContext";
 
 function App() {
   return (
-    <AuthProvider>
+    <Router>
       <Container className="min-h-screen d-flex align-items-center justify-content-center">
         <div className="w-full max-w-[400px]">
-          <Signup />
+          <AuthProvider>
+            <Routes>
+              <Route path="/signup" element={<Signup />} />
+            </Routes>
+          </AuthProvider>
         </div>
       </Container>
-    </AuthProvider>
+    </Router>
   );
 }
 
