@@ -1,7 +1,8 @@
 import { Container } from "react-bootstrap";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Signup from "./Signup";
 import { AuthProvider } from "../contexts/AuthContext";
+import Signup from "./Signup";
+import Login from "./Login";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
           <AuthProvider>
             <Routes>
               <Route path="/signup" element={<Signup />} />
+              <Route path="/login" element={<Login />} />
             </Routes>
           </AuthProvider>
         </div>

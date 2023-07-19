@@ -3,26 +3,21 @@ import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 
-export default function Signup() {
+export default function Login() {
   const emailRef = useRef<HTMLInputElement | null>(null);
   const passwordRef = useRef<HTMLInputElement | null>(null);
-  const passwordConfirmRef = useRef<HTMLInputElement | null>(null);
   const [error, setError] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
-  const { signup } = useAuth();
+  const { login } = useAuth();
   const navigate = useNavigate();
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    if (passwordRef.current?.value !== passwordConfirmRef.current?.value) {
-      return setError("Passwords do not match");
-    }
-
     try {
       setError("");
       setLoading(true);
-      await signup(
+      await login(
         emailRef.current?.value ?? "",
         passwordRef.current?.value ?? ""
       );
@@ -49,10 +44,6 @@ export default function Signup() {
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" ref={passwordRef} required />
             </Form.Group>
-            <Form.Group id="password-confirm">
-              <Form.Label>Password Confirmation</Form.Label>
-              <Form.Control type="password" ref={passwordConfirmRef} required />
-            </Form.Group>
             <Button className="w-full mt-4" type="submit" disabled={loading}>
               Sign Up
             </Button>
@@ -60,7 +51,7 @@ export default function Signup() {
         </Card.Body>
       </Card>
       <div className="w-full text-center mt-2">
-        Already have an account? <Link to="/login">Login</Link>
+        Don't have an account? <Link to="/signup">Sign Up</Link>
       </div>
     </>
   );
