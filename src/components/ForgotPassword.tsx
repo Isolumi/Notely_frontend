@@ -5,10 +5,10 @@ import { Link, useNavigate } from "react-router-dom";
 
 export default function Login() {
   const emailRef = useRef<HTMLInputElement | null>(null);
-  const passwordRef = useRef<HTMLInputElement | null>(null);
   const [error, setError] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
-  const { login } = useAuth();
+  const [message, setMessage] = useState<string>('');
+  const { resetPassword } = useAuth();
   const navigate = useNavigate();
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -17,14 +17,12 @@ export default function Login() {
     try {
       setError("");
       setLoading(true);
-      await login(
-        emailRef.current?.value ?? "",
-        passwordRef.current?.value ?? ""
-      );
+      await resetPassword(emailRef.current?.value ?? "");
+      setMessage('Check your inbox for further instructions');
       navigate("/");
     } catch (e) {
       console.log(e);
-      setError("Failed to login");
+      setError("Failed to reset password");
     }
     setLoading(false);
   }
@@ -33,23 +31,20 @@ export default function Login() {
     <>
       <Card>
         <Card.Body>
-          <h2 className="text-center mb-4">Login</h2>
+          <h2 className="text-center mb-4">Forgot Password</h2>
           {error && <Alert variant="danger">{error}</Alert>}
+          {message && <Alert variant="success">{message}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group id="email">
               <Form.Label>Email</Form.Label>
               <Form.Control type="email" ref={emailRef} required />
             </Form.Group>
-            <Form.Group id="password">
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" ref={passwordRef} required />
-            </Form.Group>
             <Button className="w-full mt-4" type="submit" disabled={loading}>
-              Log In
+              Reset Password
             </Button>
           </Form>
           <div className="w-full text-center mt-3">
-            <Link to="/fogor">Forgot Password</Link>
+            <Link to="/login">Login</Link>
           </div>
         </Card.Body>
       </Card>

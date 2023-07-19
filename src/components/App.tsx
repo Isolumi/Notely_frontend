@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "../contexts/AuthContext";
 import Signup from "./Signup";
 import Login from "./Login";
+import ForgotPassword from "./ForgotPassword";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
             <Routes>
               <Route path="/signup" element={<Signup />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/fogor" element={<ForgotPassword />} />
             </Routes>
           </AuthProvider>
         </div>

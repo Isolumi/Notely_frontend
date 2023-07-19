@@ -9,4 +9,5 @@ export type AuthContextType = {
     currentUser: User | null | undefined;
     signup: (email: string, password: string) => Promise<UserCredential>;
     login: (email: string, password: string) => Promise<UserCredential>;
+    resetPassword: (email: string) => Promise<void>;
   };
