@@ -20,7 +20,7 @@ export default function Signup() {
     try {
       setError('');
       setLoading(true);
-      signup(emailRef.current?.value, passwordRef.current?.value);
+      signup(emailRef.current?.value ?? "", passwordRef.current?.value ?? "");
     } catch(e) {
       console.log(e);
       setError('Failed to create an account');
