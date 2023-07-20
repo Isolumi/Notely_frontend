@@ -4,7 +4,7 @@ import Sidenav from "./Sidenav";
 export default function Homepage() {
   return (
     <>
-    <div className="border-2">
+    <div className="">
       <Sidenav />
     </div>
     </>

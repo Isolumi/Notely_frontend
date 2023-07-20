@@ -36,6 +36,9 @@ export default function Dashboard() {
           <Button variant="link" onClick={handleLogout}>
             Logout
           </Button>
+          <Button variant="link" onClick={() => navigate("/home")}>
+            Home
+          </Button>
         </div>
       </div>
     </Container>
