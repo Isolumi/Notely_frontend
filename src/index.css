@@ -2,8 +2,7 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-.custom-tab .nav-item .nav-link {
-    height: 35px;  /* or any height you prefer */
-    display: flex;
-    align-items: center; /* to center the text vertically */
+.nav-tabs .nav-link {
+    height: 35px;
+    line-height: 17px; /* This helps to vertically align the text in the middle */
 }

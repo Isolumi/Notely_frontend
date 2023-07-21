@@ -3,7 +3,7 @@ import Tabs from "react-bootstrap/Tabs";
 
 function Content() {
     return (
-      <Tabs defaultActiveKey="home" className="ml-2 custom-tab">
+      <Tabs defaultActiveKey="home" className="ml-2 custom-tab mb-3">
         <Tab eventKey="home" title="Home" className="">
           <p>Home tab content</p>
         </Tab>

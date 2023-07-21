@@ -17,7 +17,7 @@ export default function Homepage() {
             <div className="border-r flex-1"></div>
           </div>
         </div>
-        <div className="border flex-1">
+        <div className="flex-1">
           <Content />
         </div>
       </div>
