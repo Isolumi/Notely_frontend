@@ -1,7 +1,7 @@
 import axios from "axios";
 import { OpenAIResponse } from "../../types";
 
-async function postData(prompt: string): Promise<OpenAIResponse> {
+export async function postData(prompt: string): Promise<OpenAIResponse> {
   const OPENAI_ENDPOINT = "https://api.openai.com/v1/chat/completions";
 
   try {
